@@ -1,0 +1,29 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+Ads
+{% endblock title %}
+
+
+
+{% block content %}
+<h1>Все Объявления</h1>
+<hr>
+{% if perms.BulletinBoard.ads_create %}
+<a href="{% url 'ads_create' %}">Создать объявление</a>
+{% endif %}
+
+{% Ads %}
+
+<table>
+    <tr>
+        <td>{{ post_header }}</td>
+        <td>{{ post_text }}</td>
+
+    </tr>
+    {% endfor %}
+       </table>
+
+{% endblock content %}
